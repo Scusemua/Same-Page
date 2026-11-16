@@ -13,7 +13,7 @@ Each round, one player is the "**psychic**" and the other is the "**guesser**".
 3. The **guesser** reads the clue, sees the spectrum endpoints, and drags a needle to their best guess.
 4. Both players see the reveal together: how close the guess landed and the points earned.
 
-Roles alternate across 6 rounds. The closer the guess, the more points you score.
+Player roles alternate across 6 rounds. Guesses closer to the target yield more points, according to the following table.
 
 | Zone | Distance from target | Points |
 |------|---------------------|--------|
@@ -22,7 +22,7 @@ Roles alternate across 6 rounds. The closer the guess, the more points you score
 | Outer | within 18% | 2 |
 | Miss | beyond 18% | 0 |
 
-Max possible score across all 6 rounds: 24.
+The maximum possible score across all 6 rounds is 24.
 
 ## Getting Started
 
