@@ -2,6 +2,10 @@
 
 Same Page is a two-player Android game in which one player sees a hidden target on a spectrum between two extremes (e.g., "Hot" and "Cold"), writes a clue, and the other player guesses the position based on that clue. 
 
+<p align="center">
+  <img src="docs/screenshot.png" alt="Same Page home screen" width="300">
+</p>
+
 You can connect over local Wi-Fi and Bluetooth using Google Nearby Connections. So, ultimately no internet connection is required, enabling you to play in contexts where you have no (or a poor) data connection (e.g., subway rides). In fact, I created this app explicitly so my wife and I can play together on the subway.
 
 ## How to Play
