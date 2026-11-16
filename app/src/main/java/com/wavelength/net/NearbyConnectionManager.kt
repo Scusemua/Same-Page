@@ -43,7 +43,11 @@ class NearbyConnectionManager(context: Context) : ConnectionManager {
     // from interfering with a new one.
     private var sessionId = 0
     private var connectedEndpointId: String? = null
+    // Set when we've requested a connection but haven't heard back yet.
+    // Checked in onEndpointFound to avoid connecting to a second host while the first is pending.
     private var pendingEndpointId: String? = null
+    // Nearby callbacks identify peers by opaque endpoint IDs; this maps them to the
+    // human-readable names we show in the lobby UI.
     private val endpointNames = mutableMapOf<String, String>()
 
     private fun createPayloadCallback(activeSession: Int) = object : PayloadCallback() {

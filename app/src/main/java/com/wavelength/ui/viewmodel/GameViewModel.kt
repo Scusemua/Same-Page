@@ -40,6 +40,9 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private val _gameState = MutableStateFlow(GameState.initial())
     val gameState: StateFlow<GameState> = _gameState.asStateFlow()
 
+    // Proxy that mirrors the current connectionManager's connection state. We need our own
+    // flow because the underlying connectionManager can be swapped at runtime (fake vs. real),
+    // and Compose collectors need a stable reference that survives the swap.
     private val _connectionState = MutableStateFlow<ConnectionState>(ConnectionState.Idle)
     val connectionState: StateFlow<ConnectionState> = _connectionState.asStateFlow()
 

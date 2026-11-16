@@ -42,10 +42,13 @@ class FakeConnectionManager(context: Context) : ConnectionManager {
     private val _incomingMessages = MutableSharedFlow<GameMessage>(extraBufferCapacity = 16)
     override val incomingMessages: SharedFlow<GameMessage> = _incomingMessages.asSharedFlow()
 
+    // Guards against re-submitting clues when multiple StateSyncs arrive during the clue phase.
     private var botCluesSubmitted = false
+    // Guards against double-guessing the same round from duplicate StateSyncs.
     private var lastGuessedRound = -1
 
-    // Used when testing as Guest (Bot acts as Host)
+    // The bot-as-host's own copy of game state, independent of the ViewModel's state.
+    // Only used in the startDiscovery (bot-as-host) path.
     private var simulatedHostState = GameState.initial()
 
     override suspend fun startAdvertising(playerName: String) {
