@@ -58,7 +58,7 @@ Open the project in Android Studio and run the `app` configuration on a device o
 app/src/main/java/com/wavelength/
 ├── game/           # State, actions, reducer, scoring
 ├── net/            # ConnectionManager interface, NearbyConnectionManager, FakeConnectionManager (bot)
-├── data/           # SpectrumRepository — loads cards from assets/spectrums.json
+├── data/           # SpectrumRepository; loads cards from assets/spectrums.json
 ├── ui/
 │   ├── screens/    # Home, Lobby, Clue, Round, Reveal, Results
 │   ├── components/ # SpectrumDial, SpectrumLabel
