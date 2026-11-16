@@ -259,8 +259,8 @@ class FakeConnectionManager(context: Context) : ConnectionManager {
 
     private suspend fun emitBotGuessPreview(roundIndex: Int, finalPosition: Float) {
         val start = 0.5f
-        val steps = 15
-        val stepDelay = 100L
+        val steps = 30
+        val stepDelay = 50L
         for (i in 1..steps) {
             val t = i.toFloat() / steps
             val smoothT = t * t * (3f - 2f * t)
