@@ -195,11 +195,16 @@ fun WavelengthNavGraph(
 
         composable(Routes.ROUND) {
             BackHandler { leaveToHome() }
+            val remoteGuessPreview by viewModel.remoteGuessPreview.collectAsState()
             RoundScreen(
                 gameState = gameState,
                 isHost = viewModel.localRole == ConnectionRole.HOST,
+                remoteGuessPreview = remoteGuessPreview,
                 onSubmitGuess = { roundIndex, position ->
                     viewModel.submitGuess(roundIndex, position)
+                },
+                onGuessPreviewChanged = { roundIndex, position ->
+                    viewModel.sendGuessPreview(roundIndex, position)
                 },
                 onNextRound = { viewModel.advanceToNextRound() },
                 onLeaveGame = { leaveToHome() }

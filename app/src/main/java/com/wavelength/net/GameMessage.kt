@@ -11,6 +11,9 @@ sealed interface GameMessage {
 
     @Serializable
     data class Action(val action: GameAction) : GameMessage
+
+    @Serializable
+    data class GuessPreview(val roundIndex: Int, val position: Float) : GameMessage
 }
 
 enum class ConnectionRole { HOST, GUEST }

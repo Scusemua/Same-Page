@@ -44,6 +44,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableLongStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -60,13 +62,16 @@ import com.wavelength.game.Phase
 import com.wavelength.ui.components.SpectrumDial
 import com.wavelength.ui.components.SpectrumLabel
 import androidx.compose.animation.core.Animatable
+import androidx.compose.material3.Switch
 import kotlinx.coroutines.launch
 
 @Composable
 fun RoundScreen(
     gameState: GameState,
     isHost: Boolean,
+    remoteGuessPreview: Float?,
     onSubmitGuess: (roundIndex: Int, position: Float) -> Unit,
+    onGuessPreviewChanged: (roundIndex: Int, position: Float) -> Unit,
     onNextRound: () -> Unit,
     onLeaveGame: () -> Unit
 ) {
@@ -131,10 +136,13 @@ fun RoundScreen(
 
     // Keep the guesser's dragged needle position continuous into the reveal phase
     var localGuessPosition by remember(currentRoundIndex) { mutableFloatStateOf(0.5f) }
+    var lastPreviewSentAt by remember(currentRoundIndex) { mutableLongStateOf(0L) }
+    var showZonesToggle by remember(currentRoundIndex) { mutableStateOf(false) }
+
     val activeGuessPosition = when {
         isReveal -> round.guessPosition ?: localGuessPosition
         isGuesser -> localGuessPosition
-        else -> null
+        else -> remoteGuessPreview
     }
 
     Column(
@@ -207,13 +215,28 @@ fun RoundScreen(
 
                 // Dial stays mounted in place; wedges fan open via revealProgress
                 SpectrumDial(
-                    targetPosition = if (isReveal || !isGuesser) round.targetPosition else null,
+                    targetPosition = when {
+                        isReveal -> round.targetPosition
+                        !isGuesser -> if (showZonesToggle) round.targetPosition else null
+                        else -> null
+                    },
                     guessPosition = activeGuessPosition,
-                    showScoringZones = isReveal || !isGuesser,
+                    showScoringZones = when {
+                        isReveal -> true
+                        !isGuesser -> showZonesToggle
+                        else -> false
+                    },
                     revealProgress = revealAnim.value,
                     pulseProgress = pulseAnim.value,
                     isDraggable = !isReveal && isGuesser,
-                    onGuessChanged = { localGuessPosition = it }
+                    onGuessChanged = {
+                        localGuessPosition = it
+                        val now = System.currentTimeMillis()
+                        if (now - lastPreviewSentAt > 80) {
+                            lastPreviewSentAt = now
+                            onGuessPreviewChanged(currentRoundIndex, it)
+                        }
+                    }
                 )
 
                 // Legend fades/expands in smoothly upon Reveal
@@ -381,6 +404,21 @@ fun RoundScreen(
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                             textAlign = TextAlign.Center
                         )
+                        Spacer(modifier = Modifier.height(14.dp))
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Switch(
+                                checked = showZonesToggle,
+                                onCheckedChange = { showZonesToggle = it }
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = "Show target zones",
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
                     }
                     Spacer(modifier = Modifier.height(12.dp))
                     Text(

@@ -72,7 +72,7 @@ class FakeConnectionManager(context: Context) : ConnectionManager {
 
     private fun startBotHostGame() {
         scope.launch {
-            delay(1000) // Brief pause in lobby before Bot Host starts the game
+            delay(1000)
             val totalCards = GameConfig.CLUES_PER_PLAYER * 2
             val cards = spectrumRepository.drawShuffled(totalCards)
             val rounds = (0 until GameConfig.CLUES_PER_PLAYER).flatMap { i ->
@@ -82,8 +82,11 @@ class FakeConnectionManager(context: Context) : ConnectionManager {
                 )
             }
 
-            simulatedHostState = GameEngine.reduce(GameState.initial(), GameAction.StartGame)
-            simulatedHostState = GameEngine.reduce(simulatedHostState, GameAction.InitializeRounds(rounds))
+            // Apply both actions before syncing so the guest never sees empty rounds
+            var state = GameState.initial()
+            state = GameEngine.reduce(state, GameAction.StartGame)
+            state = GameEngine.reduce(state, GameAction.InitializeRounds(rounds))
+            simulatedHostState = state
             syncToLocalGuest()
 
             // Bot Host submits its clues
@@ -113,6 +116,7 @@ class FakeConnectionManager(context: Context) : ConnectionManager {
         when (message) {
             is GameMessage.StateSync -> handleHostStateSync(message)
             is GameMessage.Action -> handleGuestActionAsHostBot(message.action)
+            is GameMessage.GuessPreview -> { /* Bot has no UI to display previews */ }
         }
     }
 

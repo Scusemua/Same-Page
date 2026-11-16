@@ -40,6 +40,9 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private val _gameState = MutableStateFlow(GameState.initial())
     val gameState: StateFlow<GameState> = _gameState.asStateFlow()
 
+    private val _remoteGuessPreview = MutableStateFlow<Float?>(null)
+    val remoteGuessPreview: StateFlow<Float?> = _remoteGuessPreview.asStateFlow()
+
     // Proxy that mirrors the current connectionManager's connection state. We need our own
     // flow because the underlying connectionManager can be swapped at runtime (fake vs. real),
     // and Compose collectors need a stable reference that survives the swap.
@@ -90,8 +93,34 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun startGame() {
-        dispatch(GameAction.StartGame)
-        initializeRounds()
+        val cluesPerPlayer = GameConfig.CLUES_PER_PLAYER
+        val totalCards = cluesPerPlayer * 2
+        val cards = spectrumRepository.drawShuffled(totalCards)
+
+        val rounds = (0 until cluesPerPlayer).flatMap { i ->
+            listOf(
+                RoundEntry(
+                    card = cards[i * 2],
+                    targetPosition = Random.nextFloat(),
+                    psychicIsHost = true
+                ),
+                RoundEntry(
+                    card = cards[i * 2 + 1],
+                    targetPosition = Random.nextFloat(),
+                    psychicIsHost = false
+                )
+            )
+        }
+
+        // Apply both actions locally before syncing so the guest never sees
+        // SubmittingClues with an empty rounds list.
+        var state = _gameState.value
+        state = GameEngine.reduce(state, GameAction.StartGame)
+        state = GameEngine.reduce(state, GameAction.InitializeRounds(rounds))
+        _gameState.value = state
+        viewModelScope.launch {
+            connectionManager.sendMessage(GameMessage.StateSync(state.redactForGuest()))
+        }
     }
 
     fun submitClue(roundIndex: Int, clue: String) {
@@ -114,9 +143,16 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         dispatch(GameAction.PlayAgain)
     }
 
+    fun sendGuessPreview(roundIndex: Int, position: Float) {
+        viewModelScope.launch {
+            connectionManager.sendMessage(GameMessage.GuessPreview(roundIndex, position))
+        }
+    }
+
     fun disconnect() {
         connectionManager.disconnect()
         _gameState.value = GameState.initial()
+        _remoteGuessPreview.value = null
     }
 
     // Host applies actions locally and syncs the result. Guest sends actions to the
@@ -132,8 +168,17 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
 
     private fun handleMessage(msg: GameMessage) {
         when (msg) {
-            is GameMessage.StateSync -> _gameState.value = msg.state
+            is GameMessage.StateSync -> {
+                _gameState.value = msg.state
+                _remoteGuessPreview.value = null
+            }
             is GameMessage.Action -> applyAndSync(msg.action)
+            is GameMessage.GuessPreview -> {
+                val phase = _gameState.value.phase
+                if (phase is Phase.Guessing && msg.roundIndex == phase.currentRoundIndex) {
+                    _remoteGuessPreview.value = msg.position
+                }
+            }
         }
     }
 
@@ -143,32 +188,6 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             connectionManager.sendMessage(GameMessage.StateSync(newState.redactForGuest()))
         }
-    }
-
-    private fun initializeRounds() {
-        val cluesPerPlayer = GameConfig.CLUES_PER_PLAYER
-        val totalCards = cluesPerPlayer * 2
-        val cards = spectrumRepository.drawShuffled(totalCards)
-
-        val rounds = mutableListOf<RoundEntry>()
-        for (i in 0 until cluesPerPlayer) {
-            rounds.add(
-                RoundEntry(
-                    card = cards[i * 2],
-                    targetPosition = Random.nextFloat(),
-                    psychicIsHost = true
-                )
-            )
-            rounds.add(
-                RoundEntry(
-                    card = cards[i * 2 + 1],
-                    targetPosition = Random.nextFloat(),
-                    psychicIsHost = false
-                )
-            )
-        }
-
-        dispatch(GameAction.InitializeRounds(rounds))
     }
 
     // Strip information the guest shouldn't see. During clue-writing, hide the host's cards

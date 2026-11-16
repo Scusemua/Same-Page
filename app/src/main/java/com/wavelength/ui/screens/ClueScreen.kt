@@ -77,6 +77,8 @@ fun ClueScreen(
 ) {
     val phase = gameState.phase as? Phase.SubmittingClues ?: return
 
+    if (gameState.rounds.isEmpty()) return
+
     val myRounds = gameState.rounds
         .mapIndexed { index, entry -> index to entry }
         .filter { (_, entry) -> entry.psychicIsHost == isHost && entry.card != null }
