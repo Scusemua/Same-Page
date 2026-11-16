@@ -39,7 +39,7 @@ There's also a built-in bot opponent available for solo testing (both as host an
 Requires Android Studio and JDK 17.
 
 ```
-git clone <your-repo-url>
+git clone https://github.com/Scusemua/Same-Page.git
 ```
 
 Open the project in Android Studio and run the `app` configuration on a device or emulator running API 26+.
