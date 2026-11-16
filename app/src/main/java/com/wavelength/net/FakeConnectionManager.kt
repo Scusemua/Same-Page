@@ -133,17 +133,15 @@ class FakeConnectionManager(context: Context) : ConnectionManager {
             when (val phase = simulatedHostState.phase) {
                 is Phase.Guessing -> {
                     val round = simulatedHostState.rounds.getOrNull(phase.currentRoundIndex)
-                    // If the Guest (you) gave the clue, the Host Bot needs to guess
                     if (round != null && !round.psychicIsHost) {
-                        delay(1500)
+                        val finalPos = Random.nextFloat()
+                        emitBotGuessPreview(phase.currentRoundIndex, finalPos)
                         simulatedHostState = GameEngine.reduce(
                             simulatedHostState,
-                            GameAction.SubmitGuess(phase.currentRoundIndex, Random.nextFloat())
+                            GameAction.SubmitGuess(phase.currentRoundIndex, finalPos)
                         )
                         syncToLocalGuest()
-                        // Loop continues so it also handles the resulting Phase.Reveal!
                     } else {
-                        // Otherwise, it's your turn as the Guest to guess—stop and wait for your input
                         break
                     }
                 }
@@ -227,12 +225,13 @@ class FakeConnectionManager(context: Context) : ConnectionManager {
                 if (currentRound != null && currentRound.psychicIsHost && lastGuessedRound != roundIndex) {
                     lastGuessedRound = roundIndex
                     scope.launch {
-                        delay(1500)
+                        val finalPos = Random.nextFloat()
+                        emitBotGuessPreview(roundIndex, finalPos)
                         _incomingMessages.emit(
                             GameMessage.Action(
                                 GameAction.SubmitGuess(
                                     roundIndex = roundIndex,
-                                    position = Random.nextFloat()
+                                    position = finalPos
                                 )
                             )
                         )
@@ -256,6 +255,19 @@ class FakeConnectionManager(context: Context) : ConnectionManager {
         lastGuessedRound = -1
         simulatedHostState = GameState.initial()
         _connectionState.value = ConnectionState.Disconnected("Local test ended")
+    }
+
+    private suspend fun emitBotGuessPreview(roundIndex: Int, finalPosition: Float) {
+        val start = 0.5f
+        val steps = 15
+        val stepDelay = 100L
+        for (i in 1..steps) {
+            val t = i.toFloat() / steps
+            val smoothT = t * t * (3f - 2f * t)
+            val pos = start + (finalPosition - start) * smoothT
+            _incomingMessages.emit(GameMessage.GuessPreview(roundIndex, pos))
+            delay(stepDelay)
+        }
     }
 
     companion object {
