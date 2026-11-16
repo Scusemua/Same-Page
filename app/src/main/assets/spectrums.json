@@ -1,0 +1,852 @@
+[
+  {
+    "id": 1,
+    "leftLabel": "Hot",
+    "rightLabel": "Cold"
+  },
+  {
+    "id": 2,
+    "leftLabel": "Loud",
+    "rightLabel": "Quiet"
+  },
+  {
+    "id": 3,
+    "leftLabel": "Old",
+    "rightLabel": "Young"
+  },
+  {
+    "id": 4,
+    "leftLabel": "Fast",
+    "rightLabel": "Slow"
+  },
+  {
+    "id": 5,
+    "leftLabel": "Big",
+    "rightLabel": "Small"
+  },
+  {
+    "id": 6,
+    "leftLabel": "Expensive",
+    "rightLabel": "Cheap"
+  },
+  {
+    "id": 7,
+    "leftLabel": "Dangerous",
+    "rightLabel": "Safe"
+  },
+  {
+    "id": 8,
+    "leftLabel": "Famous",
+    "rightLabel": "Unknown"
+  },
+  {
+    "id": 9,
+    "leftLabel": "Beautiful",
+    "rightLabel": "Ugly"
+  },
+  {
+    "id": 10,
+    "leftLabel": "Smart",
+    "rightLabel": "Foolish"
+  },
+  {
+    "id": 11,
+    "leftLabel": "Strong",
+    "rightLabel": "Weak"
+  },
+  {
+    "id": 12,
+    "leftLabel": "Useful",
+    "rightLabel": "Useless"
+  },
+  {
+    "id": 13,
+    "leftLabel": "Wet",
+    "rightLabel": "Dry"
+  },
+  {
+    "id": 14,
+    "leftLabel": "Heavy",
+    "rightLabel": "Light"
+  },
+  {
+    "id": 15,
+    "leftLabel": "Hard",
+    "rightLabel": "Soft"
+  },
+  {
+    "id": 16,
+    "leftLabel": "Sweet",
+    "rightLabel": "Bitter"
+  },
+  {
+    "id": 17,
+    "leftLabel": "Bright",
+    "rightLabel": "Dark"
+  },
+  {
+    "id": 18,
+    "leftLabel": "Smooth",
+    "rightLabel": "Rough"
+  },
+  {
+    "id": 19,
+    "leftLabel": "Clean",
+    "rightLabel": "Dirty"
+  },
+  {
+    "id": 20,
+    "leftLabel": "Full",
+    "rightLabel": "Empty"
+  },
+  {
+    "id": 21,
+    "leftLabel": "Healthy",
+    "rightLabel": "Unhealthy"
+  },
+  {
+    "id": 22,
+    "leftLabel": "Relaxing",
+    "rightLabel": "Stressful"
+  },
+  {
+    "id": 23,
+    "leftLabel": "Simple",
+    "rightLabel": "Complicated"
+  },
+  {
+    "id": 24,
+    "leftLabel": "Modern",
+    "rightLabel": "Old-fashioned"
+  },
+  {
+    "id": 25,
+    "leftLabel": "Exciting",
+    "rightLabel": "Boring"
+  },
+  {
+    "id": 26,
+    "leftLabel": "Funny",
+    "rightLabel": "Serious"
+  },
+  {
+    "id": 27,
+    "leftLabel": "Scary",
+    "rightLabel": "Comforting"
+  },
+  {
+    "id": 28,
+    "leftLabel": "Spicy",
+    "rightLabel": "Mild"
+  },
+  {
+    "id": 29,
+    "leftLabel": "Colorful",
+    "rightLabel": "Plain"
+  },
+  {
+    "id": 30,
+    "leftLabel": "Tall",
+    "rightLabel": "Short"
+  },
+  {
+    "id": 31,
+    "leftLabel": "Round",
+    "rightLabel": "Pointy"
+  },
+  {
+    "id": 32,
+    "leftLabel": "Trendy",
+    "rightLabel": "Timeless"
+  },
+  {
+    "id": 33,
+    "leftLabel": "Wild",
+    "rightLabel": "Tame"
+  },
+  {
+    "id": 34,
+    "leftLabel": "Rare",
+    "rightLabel": "Common"
+  },
+  {
+    "id": 35,
+    "leftLabel": "Deep",
+    "rightLabel": "Shallow"
+  },
+  {
+    "id": 36,
+    "leftLabel": "Fragile",
+    "rightLabel": "Durable"
+  },
+  {
+    "id": 37,
+    "leftLabel": "Tasty",
+    "rightLabel": "Bland"
+  },
+  {
+    "id": 38,
+    "leftLabel": "Elegant",
+    "rightLabel": "Clumsy"
+  },
+  {
+    "id": 39,
+    "leftLabel": "Crowded",
+    "rightLabel": "Deserted"
+  },
+  {
+    "id": 40,
+    "leftLabel": "Addictive",
+    "rightLabel": "Forgettable"
+  },
+  {
+    "id": 41,
+    "leftLabel": "Romantic",
+    "rightLabel": "Unromantic"
+  },
+  {
+    "id": 42,
+    "leftLabel": "Weird",
+    "rightLabel": "Normal"
+  },
+  {
+    "id": 43,
+    "leftLabel": "Guilty Pleasure",
+    "rightLabel": "Proudly Enjoyed"
+  },
+  {
+    "id": 44,
+    "leftLabel": "Good First Date",
+    "rightLabel": "Bad First Date"
+  },
+  {
+    "id": 45,
+    "leftLabel": "Morning Person",
+    "rightLabel": "Night Owl"
+  },
+  {
+    "id": 46,
+    "leftLabel": "City",
+    "rightLabel": "Countryside"
+  },
+  {
+    "id": 47,
+    "leftLabel": "Introvert",
+    "rightLabel": "Extrovert"
+  },
+  {
+    "id": 48,
+    "leftLabel": "Needs Skill",
+    "rightLabel": "Needs Luck"
+  },
+  {
+    "id": 49,
+    "leftLabel": "Overrated",
+    "rightLabel": "Underrated"
+  },
+  {
+    "id": 50,
+    "leftLabel": "Smells Good",
+    "rightLabel": "Smells Bad"
+  },
+  {
+    "id": 51,
+    "leftLabel": "Kid-Friendly",
+    "rightLabel": "Adults Only"
+  },
+  {
+    "id": 52,
+    "leftLabel": "Summer",
+    "rightLabel": "Winter"
+  },
+  {
+    "id": 53,
+    "leftLabel": "Crunchy",
+    "rightLabel": "Chewy"
+  },
+  {
+    "id": 54,
+    "leftLabel": "Love It",
+    "rightLabel": "Hate It"
+  },
+  {
+    "id": 55,
+    "leftLabel": "Easy to Learn",
+    "rightLabel": "Hard to Master"
+  },
+  {
+    "id": 56,
+    "leftLabel": "Would Survive",
+    "rightLabel": "Would Not Survive"
+  },
+  {
+    "id": 57,
+    "leftLabel": "Good Superpower",
+    "rightLabel": "Bad Superpower"
+  },
+  {
+    "id": 58,
+    "leftLabel": "Mainstream",
+    "rightLabel": "Niche"
+  },
+  {
+    "id": 59,
+    "leftLabel": "Classy",
+    "rightLabel": "Trashy"
+  },
+  {
+    "id": 60,
+    "leftLabel": "Satisfying",
+    "rightLabel": "Frustrating"
+  },
+  {
+    "id": 61,
+    "leftLabel": "Heavenly",
+    "rightLabel": "Hellish"
+  },
+  {
+    "id": 62,
+    "leftLabel": "Wholesome",
+    "rightLabel": "Cursed"
+  },
+  {
+    "id": 63,
+    "leftLabel": "Genius Idea",
+    "rightLabel": "Terrible Idea"
+  },
+  {
+    "id": 64,
+    "leftLabel": "Undeniably True",
+    "rightLabel": "Completely False"
+  },
+  {
+    "id": 65,
+    "leftLabel": "Socially Acceptable",
+    "rightLabel": "Socially Unacceptable"
+  },
+  {
+    "id": 66,
+    "leftLabel": "Overly Cautious",
+    "rightLabel": "Reckless"
+  },
+  {
+    "id": 67,
+    "leftLabel": "Appropriate",
+    "rightLabel": "Inappropriate"
+  },
+  {
+    "id": 68,
+    "leftLabel": "Impressive",
+    "rightLabel": "Embarrassing"
+  },
+  {
+    "id": 69,
+    "leftLabel": "Memorable",
+    "rightLabel": "Unmemorable"
+  },
+  {
+    "id": 70,
+    "leftLabel": "Undeniably Cool",
+    "rightLabel": "Extremely Lame"
+  },
+  {
+    "id": 71,
+    "leftLabel": "Comfortable",
+    "rightLabel": "Awkward"
+  },
+  {
+    "id": 72,
+    "leftLabel": "Sincere",
+    "rightLabel": "Insincere"
+  },
+  {
+    "id": 73,
+    "leftLabel": "Trustworthy",
+    "rightLabel": "Suspicious"
+  },
+  {
+    "id": 74,
+    "leftLabel": "Mature",
+    "rightLabel": "Immature"
+  },
+  {
+    "id": 75,
+    "leftLabel": "Ambitious",
+    "rightLabel": "Unmotivated"
+  },
+  {
+    "id": 76,
+    "leftLabel": "Generous",
+    "rightLabel": "Selfish"
+  },
+  {
+    "id": 77,
+    "leftLabel": "Patient",
+    "rightLabel": "Impatient"
+  },
+  {
+    "id": 78,
+    "leftLabel": "Diplomatic",
+    "rightLabel": "Blunt"
+  },
+  {
+    "id": 79,
+    "leftLabel": "Independent",
+    "rightLabel": "Needy"
+  },
+  {
+    "id": 80,
+    "leftLabel": "Laid-Back",
+    "rightLabel": "High-Strung"
+  },
+  {
+    "id": 81,
+    "leftLabel": "Dream Job",
+    "rightLabel": "Nightmare Job"
+  },
+  {
+    "id": 82,
+    "leftLabel": "Perfect Vacation",
+    "rightLabel": "Terrible Vacation"
+  },
+  {
+    "id": 83,
+    "leftLabel": "Worth the Wait",
+    "rightLabel": "Not Worth the Wait"
+  },
+  {
+    "id": 84,
+    "leftLabel": "Great Investment",
+    "rightLabel": "Waste of Money"
+  },
+  {
+    "id": 85,
+    "leftLabel": "Ideal Pet",
+    "rightLabel": "Terrible Pet"
+  },
+  {
+    "id": 86,
+    "leftLabel": "Great Roommate",
+    "rightLabel": "Horrible Roommate"
+  },
+  {
+    "id": 87,
+    "leftLabel": "Perfect Gift",
+    "rightLabel": "Awful Gift"
+  },
+  {
+    "id": 88,
+    "leftLabel": "Great Wedding",
+    "rightLabel": "Terrible Wedding"
+  },
+  {
+    "id": 89,
+    "leftLabel": "Great Neighbor",
+    "rightLabel": "Nightmare Neighbor"
+  },
+  {
+    "id": 90,
+    "leftLabel": "Worth Fighting For",
+    "rightLabel": "Not Worth the Trouble"
+  },
+  {
+    "id": 91,
+    "leftLabel": "Overprepared",
+    "rightLabel": "Underprepared"
+  },
+  {
+    "id": 92,
+    "leftLabel": "Overdressed",
+    "rightLabel": "Underdressed"
+  },
+  {
+    "id": 93,
+    "leftLabel": "Too Much Information",
+    "rightLabel": "Not Enough Information"
+  },
+  {
+    "id": 94,
+    "leftLabel": "Too Early",
+    "rightLabel": "Too Late"
+  },
+  {
+    "id": 95,
+    "leftLabel": "Too Hot to Handle",
+    "rightLabel": "Too Cold to Care"
+  },
+  {
+    "id": 96,
+    "leftLabel": "Too Mainstream",
+    "rightLabel": "Too Pretentious"
+  },
+  {
+    "id": 97,
+    "leftLabel": "Overly Optimistic",
+    "rightLabel": "Overly Pessimistic"
+  },
+  {
+    "id": 98,
+    "leftLabel": "Too Much Effort",
+    "rightLabel": "Not Enough Effort"
+  },
+  {
+    "id": 99,
+    "leftLabel": "Oversharing",
+    "rightLabel": "Too Secretive"
+  },
+  {
+    "id": 100,
+    "leftLabel": "Too Competitive",
+    "rightLabel": "Not Competitive Enough"
+  },
+  {
+    "id": 101,
+    "leftLabel": "Instantly Recognizable",
+    "rightLabel": "Impossible to Recognize"
+  },
+  {
+    "id": 102,
+    "leftLabel": "Believable Fiction",
+    "rightLabel": "Unbelievable Fiction"
+  },
+  {
+    "id": 103,
+    "leftLabel": "Good Plot Twist",
+    "rightLabel": "Bad Plot Twist"
+  },
+  {
+    "id": 104,
+    "leftLabel": "Best Movie Villain",
+    "rightLabel": "Worst Movie Villain"
+  },
+  {
+    "id": 105,
+    "leftLabel": "Iconic Character",
+    "rightLabel": "Forgettable Character"
+  },
+  {
+    "id": 106,
+    "leftLabel": "Best Fictional Universe",
+    "rightLabel": "Worst Fictional Universe"
+  },
+  {
+    "id": 107,
+    "leftLabel": "Instant Classic",
+    "rightLabel": "Instant Flop"
+  },
+  {
+    "id": 108,
+    "leftLabel": "Great Sequel",
+    "rightLabel": "Unnecessary Sequel"
+  },
+  {
+    "id": 109,
+    "leftLabel": "Best Fictional Weapon",
+    "rightLabel": "Worst Fictional Weapon"
+  },
+  {
+    "id": 110,
+    "leftLabel": "Relatable Character",
+    "rightLabel": "Completely Unrelatable Character"
+  },
+  {
+    "id": 111,
+    "leftLabel": "Would Eat Every Day",
+    "rightLabel": "Would Never Eat Again"
+  },
+  {
+    "id": 112,
+    "leftLabel": "Best Breakfast Food",
+    "rightLabel": "Worst Breakfast Food"
+  },
+  {
+    "id": 113,
+    "leftLabel": "Best Pizza Topping",
+    "rightLabel": "Worst Pizza Topping"
+  },
+  {
+    "id": 114,
+    "leftLabel": "Underrated Food",
+    "rightLabel": "Overrated Food"
+  },
+  {
+    "id": 115,
+    "leftLabel": "Perfectly Cooked",
+    "rightLabel": "Ruined by Cooking"
+  },
+  {
+    "id": 116,
+    "leftLabel": "Best Food Combination",
+    "rightLabel": "Worst Food Combination"
+  },
+  {
+    "id": 117,
+    "leftLabel": "Worth the Calories",
+    "rightLabel": "Not Worth the Calories"
+  },
+  {
+    "id": 118,
+    "leftLabel": "Fancy Restaurant Food",
+    "rightLabel": "Gas Station Food"
+  },
+  {
+    "id": 119,
+    "leftLabel": "Comfort Food",
+    "rightLabel": "Adventure Food"
+  },
+  {
+    "id": 120,
+    "leftLabel": "Best Ice Cream Flavor",
+    "rightLabel": "Worst Ice Cream Flavor"
+  },
+  {
+    "id": 121,
+    "leftLabel": "Would Marry",
+    "rightLabel": "Would Divorce"
+  },
+  {
+    "id": 122,
+    "leftLabel": "Ideal Date Activity",
+    "rightLabel": "Awful Date Activity"
+  },
+  {
+    "id": 123,
+    "leftLabel": "Instant Attraction",
+    "rightLabel": "Instant Repulsion"
+  },
+  {
+    "id": 124,
+    "leftLabel": "Green Flag",
+    "rightLabel": "Red Flag"
+  },
+  {
+    "id": 125,
+    "leftLabel": "Thoughtful Gesture",
+    "rightLabel": "Bare Minimum"
+  },
+  {
+    "id": 126,
+    "leftLabel": "Great Compliment",
+    "rightLabel": "Backhanded Compliment"
+  },
+  {
+    "id": 127,
+    "leftLabel": "Romantic Movie Scene",
+    "rightLabel": "Cringeworthy Movie Scene"
+  },
+  {
+    "id": 128,
+    "leftLabel": "Good Argument",
+    "rightLabel": "Bad Argument"
+  },
+  {
+    "id": 129,
+    "leftLabel": "Worth Apologizing For",
+    "rightLabel": "Not Worth Apologizing For"
+  },
+  {
+    "id": 130,
+    "leftLabel": "Relationship Dealbreaker",
+    "rightLabel": "Minor Annoyance"
+  },
+  {
+    "id": 131,
+    "leftLabel": "Would Pet",
+    "rightLabel": "Would Run Away From"
+  },
+  {
+    "id": 132,
+    "leftLabel": "Would Explore",
+    "rightLabel": "Would Avoid"
+  },
+  {
+    "id": 133,
+    "leftLabel": "Best Way to Die",
+    "rightLabel": "Worst Way to Die"
+  },
+  {
+    "id": 134,
+    "leftLabel": "Would Trust With My Life",
+    "rightLabel": "Wouldn't Trust With a Sandwich"
+  },
+  {
+    "id": 135,
+    "leftLabel": "Would Fight",
+    "rightLabel": "Would Immediately Surrender"
+  },
+  {
+    "id": 136,
+    "leftLabel": "Best Apocalypse Companion",
+    "rightLabel": "Worst Apocalypse Companion"
+  },
+  {
+    "id": 137,
+    "leftLabel": "Would Survive Alone",
+    "rightLabel": "Would Need Constant Help"
+  },
+  {
+    "id": 138,
+    "leftLabel": "Worth Going to Jail For",
+    "rightLabel": "Absolutely Not Worth Going to Jail For"
+  },
+  {
+    "id": 139,
+    "leftLabel": "Would Make a Great President",
+    "rightLabel": "Would Make a Terrible President"
+  },
+  {
+    "id": 140,
+    "leftLabel": "Best Person to Be Stranded With",
+    "rightLabel": "Worst Person to Be Stranded With"
+  },
+  {
+    "id": 141,
+    "leftLabel": "More Likely to Impulse-Buy Something",
+    "rightLabel": "Less Likely to Impulse-Buy Something"
+  },
+  {
+    "id": 142,
+    "leftLabel": "More Likely to Survive a Horror Movie",
+    "rightLabel": "Less Likely to Survive a Horror Movie"
+  },
+  {
+    "id": 143,
+    "leftLabel": "More Likely to Become Famous",
+    "rightLabel": "Less Likely to Become Famous"
+  },
+  {
+    "id": 144,
+    "leftLabel": "More Likely to Accidentally Start a Cult",
+    "rightLabel": "Less Likely to Accidentally Start a Cult"
+  },
+  {
+    "id": 145,
+    "leftLabel": "More Likely to Befriend an Alien",
+    "rightLabel": "More Likely to Fear an Alien"
+  },
+  {
+    "id": 146,
+    "leftLabel": "More Likely to Win an Argument",
+    "rightLabel": "More Likely to Lose an Argument"
+  },
+  {
+    "id": 147,
+    "leftLabel": "More Likely to Get Lost With GPS",
+    "rightLabel": "Less Likely to Get Lost With GPS"
+  },
+  {
+    "id": 148,
+    "leftLabel": "More Likely to Become a Millionaire",
+    "rightLabel": "Less Likely to Become a Millionaire"
+  },
+  {
+    "id": 149,
+    "leftLabel": "More Likely to Befriend Their Kidnapper",
+    "rightLabel": "More Likely to Escape Their Kidnapper"
+  },
+  {
+    "id": 150,
+    "leftLabel": "More Likely to Accidentally Commit a Crime",
+    "rightLabel": "Less Likely to Accidentally Commit a Crime"
+  },
+  {
+    "id": 151,
+    "leftLabel": "More Suspicious to See in a Parking Lot",
+    "rightLabel": "Less Suspicious to See in a Parking Lot"
+  },
+  {
+    "id": 152,
+    "leftLabel": "More Embarrassing Search History",
+    "rightLabel": "Less Embarrassing Search History"
+  },
+  {
+    "id": 153,
+    "leftLabel": "Worse Thing to Find in Your Bed",
+    "rightLabel": "Less Bad Thing to Find in Your Bed"
+  },
+  {
+    "id": 154,
+    "leftLabel": "More Concerning Thing for a Doctor to Say",
+    "rightLabel": "Less Concerning Thing for a Doctor to Say"
+  },
+  {
+    "id": 155,
+    "leftLabel": "Worse Thing to Hear From a Pilot",
+    "rightLabel": "Less Bad Thing to Hear From a Pilot"
+  },
+  {
+    "id": 156,
+    "leftLabel": "More Awkward Thing to Say at a Funeral",
+    "rightLabel": "Less Awkward Thing to Say at a Funeral"
+  },
+  {
+    "id": 157,
+    "leftLabel": "More Suspicious Thing to Find in a Basement",
+    "rightLabel": "Less Suspicious Thing to Find in a Basement"
+  },
+  {
+    "id": 158,
+    "leftLabel": "Worse Thing to Wake Up Next To",
+    "rightLabel": "Less Bad Thing to Wake Up Next To"
+  },
+  {
+    "id": 159,
+    "leftLabel": "More Alarming Thing to Receive in the Mail",
+    "rightLabel": "Less Alarming Thing to Receive in the Mail"
+  },
+  {
+    "id": 160,
+    "leftLabel": "Worse Thing to Hear From Your Uber Driver",
+    "rightLabel": "Less Bad Thing to Hear From Your Uber Driver"
+  },
+  {
+    "id": 161,
+    "leftLabel": "Morally Justifiable",
+    "rightLabel": "Morally Unjustifiable"
+  },
+  {
+    "id": 162,
+    "leftLabel": "Selfless",
+    "rightLabel": "Self-Serving"
+  },
+  {
+    "id": 163,
+    "leftLabel": "Forgivable",
+    "rightLabel": "Unforgivable"
+  },
+  {
+    "id": 164,
+    "leftLabel": "Ethical",
+    "rightLabel": "Unethical"
+  },
+  {
+    "id": 165,
+    "leftLabel": "Deserves Sympathy",
+    "rightLabel": "Deserves Blame"
+  },
+  {
+    "id": 166,
+    "leftLabel": "Freedom",
+    "rightLabel": "Security"
+  },
+  {
+    "id": 167,
+    "leftLabel": "Nature",
+    "rightLabel": "Nurture"
+  },
+  {
+    "id": 168,
+    "leftLabel": "Harmless Lie",
+    "rightLabel": "Serious Betrayal"
+  },
+  {
+    "id": 169,
+    "leftLabel": "Reasonable Sacrifice",
+    "rightLabel": "Unacceptable Sacrifice"
+  },
+  {
+    "id": 170,
+    "leftLabel": "Individual Responsibility",
+    "rightLabel": "Societal Responsibility"
+  }
+]
