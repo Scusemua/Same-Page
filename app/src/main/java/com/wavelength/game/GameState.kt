@@ -2,6 +2,11 @@ package com.wavelength.game
 
 import kotlinx.serialization.Serializable
 
+/**
+ * Complete snapshot of a game in progress. Serializable so the host can send it
+ * over the wire to the guest. The host holds the authoritative copy; the guest
+ * receives a redacted version with hidden targets stripped out.
+ */
 @Serializable
 data class GameState(
     val phase: Phase,
@@ -13,6 +18,10 @@ data class GameState(
     }
 }
 
+/**
+ * One round's data. Fields like [targetPosition] and [card] may be null in the
+ * guest's copy to prevent the guesser from seeing the answer before the reveal.
+ */
 @Serializable
 data class RoundEntry(
     val card: SpectrumCard?,

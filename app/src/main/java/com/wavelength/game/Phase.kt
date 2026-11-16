@@ -3,6 +3,7 @@ package com.wavelength.game
 import kotlinx.serialization.Serializable
 
 @Serializable
+/** Game state machine. Each phase determines which screen is shown and which actions the reducer accepts. */
 sealed interface Phase {
     @Serializable
     data object Lobby : Phase

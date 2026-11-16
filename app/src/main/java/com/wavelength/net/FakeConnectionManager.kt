@@ -22,6 +22,15 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
+/**
+ * Simulates a second player locally. Operates in two modes depending on who connects:
+ * - Local player hosts (startAdvertising): bot acts as guest, submitting random clues and guesses.
+ * - Local player joins (startDiscovery): bot acts as host, running the full game loop with
+ *   its own GameEngine, creating rounds, writing clues, guessing, and advancing phases.
+ *
+ * The scope is cancelled and recreated on disconnect to prevent orphaned coroutines from
+ * emitting state changes after the player leaves.
+ */
 class FakeConnectionManager(context: Context) : ConnectionManager {
 
     private var scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
@@ -94,6 +103,9 @@ class FakeConnectionManager(context: Context) : ConnectionManager {
         }
     }
 
+    // Routing depends on which mode we're in. StateSync means the local player is host
+    // and is pushing state to us (bot-as-guest). Action means the local player is guest
+    // and is sending their move to us (bot-as-host).
     override suspend fun sendMessage(message: GameMessage) {
         when (message) {
             is GameMessage.StateSync -> handleHostStateSync(message)

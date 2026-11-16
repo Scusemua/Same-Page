@@ -1,5 +1,9 @@
 package com.wavelength.game
 
+/**
+ * Pure reducer for all game state transitions. Stateless and side-effect-free so the host
+ * and guest can both run the same logic deterministically against the same inputs.
+ */
 object GameEngine {
 
     fun reduce(state: GameState, action: GameAction): GameState = when (action) {

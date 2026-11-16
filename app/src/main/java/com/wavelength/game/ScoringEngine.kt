@@ -2,6 +2,7 @@ package com.wavelength.game
 
 import kotlin.math.abs
 
+/** Points based on guess-to-target distance. Three concentric zones (bullseye, inner, outer) plus a miss. */
 object ScoringEngine {
 
     fun calculate(target: Float, guess: Float): Int {

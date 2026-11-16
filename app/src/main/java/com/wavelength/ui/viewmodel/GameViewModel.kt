@@ -23,12 +23,17 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
+/**
+ * Central game coordinator. The host is the authority: it reduces actions through GameEngine,
+ * updates local state, and syncs a redacted copy to the guest. The guest forwards actions
+ * to the host over the network and applies incoming state snapshots directly.
+ */
 class GameViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val _useFakeConnection = MutableStateFlow(true)
+    private val _useFakeConnection = MutableStateFlow(false)
     val useFakeConnection: StateFlow<Boolean> = _useFakeConnection.asStateFlow()
 
-    private var connectionManager: ConnectionManager = FakeConnectionManager(application)
+    private var connectionManager: ConnectionManager = NearbyConnectionManager(application)
 
     private val spectrumRepository = SpectrumRepository(application)
 
@@ -111,6 +116,8 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         _gameState.value = GameState.initial()
     }
 
+    // Host applies actions locally and syncs the result. Guest sends actions to the
+    // host for processing, since only the host holds the authoritative game state.
     private fun dispatch(action: GameAction) {
         when (localRole) {
             ConnectionRole.HOST -> applyAndSync(action)
@@ -161,6 +168,9 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         dispatch(GameAction.InitializeRounds(rounds))
     }
 
+    // Strip information the guest shouldn't see. During clue-writing, hide the host's cards
+    // and targets entirely. During guessing, keep the card (they need the spectrum labels)
+    // but hide the target position so they can't see where to aim.
     private fun GameState.redactForGuest(): GameState {
         val currentPhase = this.phase
         return copy(rounds = rounds.map { entry ->

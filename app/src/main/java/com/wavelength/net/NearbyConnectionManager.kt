@@ -23,6 +23,10 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.serialization.json.Json
 
+/**
+ * Device-to-device connection using Google Nearby Connections over Wi-Fi and Bluetooth.
+ * Uses P2P_POINT_TO_POINT strategy, which supports exactly two devices.
+ */
 class NearbyConnectionManager(context: Context) : ConnectionManager {
 
     private val connectionsClient = Nearby.getConnectionsClient(context.applicationContext)
@@ -34,6 +38,9 @@ class NearbyConnectionManager(context: Context) : ConnectionManager {
     private val _incomingMessages = MutableSharedFlow<GameMessage>(extraBufferCapacity = 64)
     override val incomingMessages: SharedFlow<GameMessage> = _incomingMessages.asSharedFlow()
 
+    // Incremented on each resetRadios() call. Callbacks capture the current value when created
+    // and bail out if it's changed, preventing stale callbacks from a previous connection attempt
+    // from interfering with a new one.
     private var sessionId = 0
     private var connectedEndpointId: String? = null
     private var pendingEndpointId: String? = null
